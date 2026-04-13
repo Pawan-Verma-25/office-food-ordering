@@ -1,0 +1,32 @@
+// Version: 1.0.0
+type Item__751671943 =
+  {
+    category : Text;
+    itemName : Text;
+    price : Nat;
+    quantity : Nat;
+    restaurant : Text
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Order__762448211 =
+  {
+    department : Text;
+    id : Nat;
+    items : [Item__751671943];
+    name : Text;
+    paymentScreenshot : Text;
+    phone : Text;
+    restaurantName : Text;
+    timestamp : Int;
+    totalAmount : Nat
+  };
+actor {
+  stable var nextId : Nat;
+  stable orders :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Order__762448211]];
+      var elementIndex : Nat__490723111
+    }
+};

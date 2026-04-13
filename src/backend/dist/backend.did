@@ -1,0 +1,26 @@
+type Order = 
+ record {
+   department: text;
+   id: nat;
+   items: vec Item;
+   name: text;
+   paymentScreenshot: text;
+   phone: text;
+   restaurantName: text;
+   timestamp: int;
+   totalAmount: nat;
+ };
+type Item = 
+ record {
+   category: text;
+   itemName: text;
+   price: nat;
+   quantity: nat;
+   restaurant: text;
+ };
+service : {
+  getOrders: () -> (vec Order) query;
+  placeOrder: (name: text, department: text, phone: text, restaurantName:
+   text, items: vec Item, totalAmount: nat, paymentScreenshot: text) ->
+   (Order);
+}

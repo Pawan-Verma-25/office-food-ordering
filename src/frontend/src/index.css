@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Soft light background — #F8FAFC equivalent */
+    --background: 0.982 0.004 247;
+    /* Card white */
+    --card: 1 0 0;
+    --card-foreground: 0.14 0.06 258;
+    /* Deep navy foreground */
+    --foreground: 0.14 0.06 258;
+    /* Muted */
+    --muted: 0.96 0.006 248;
+    --muted-foreground: 0.52 0.035 255;
+    /* Primary deep blue — #1E3A8A equivalent */
+    --primary: 0.28 0.15 255;
+    --primary-foreground: 1 0 0;
+    /* Vibrant orange accent — #F97316 equivalent */
+    --accent: 0.7 0.18 45;
+    --accent-foreground: 1 0 0;
+    /* Secondary */
+    --secondary: 0.94 0.012 255;
+    --secondary-foreground: 0.28 0.15 255;
+    /* Border */
+    --border: 0.92 0.008 250;
+    --input: 0.92 0.008 250;
+    --ring: 0.28 0.15 255;
+    --radius: 0.875rem;
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.14 0.06 258;
+    /* Destructive */
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 1 0 0;
+    /* Chart */
+    --chart-1: 0.28 0.15 255;
+    --chart-2: 0.7 0.18 45;
+    --chart-3: 0.5 0.18 300;
+    --chart-4: 0.6 0.2 170;
+    --chart-5: 0.55 0.22 25;
+    /* Shadows */
+    --shadow-soft: 0 2px 12px 0 oklch(0.28 0.15 255 / 0.08);
+    --shadow-card: 0 4px 20px 0 oklch(0 0 0 / 0.08);
+    /* Payment surface */
+    --payment-bg: 0.99 0.008 55;
+    --payment-border: 0.85 0.08 42;
+    --payment-text: 0.3 0.09 42;
+    --payment-muted: 0.52 0.07 42;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Figtree", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Pill tab active animation */
+@keyframes pill-in {
+  from {
+    transform: scale(0.94);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.pill-active {
+  animation: pill-in 0.18s ease-out forwards;
+}
+
+/* Hero decorative food float */
+@keyframes float-food {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.food-float {
+  animation: float-food 3s ease-in-out infinite;
+}
+.food-float-delay-1 {
+  animation-delay: 0.5s;
+}
+.food-float-delay-2 {
+  animation-delay: 1s;
+}
+.food-float-delay-3 {
+  animation-delay: 1.5s;
+}
+.food-float-delay-4 {
+  animation-delay: 2s;
+}
+
+/* Cart badge pulse */
+@keyframes badge-pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.35);
+  }
+  70% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.badge-pop {
+  animation: badge-pop 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+}
+
+/* Custom dropdown styles */
+.custom-dropdown-item {
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.custom-dropdown-item:hover {
+  background: oklch(0.28 0.15 255 / 0.05);
+}
+.custom-dropdown-item.selected {
+  background: oklch(0.28 0.15 255 / 0.1);
+  color: oklch(0.28 0.15 255);
+  font-weight: 600;
+}
